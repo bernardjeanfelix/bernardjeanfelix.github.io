@@ -1,0 +1,701 @@
+/* Reset basique */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #fafafa;
+    color: #111827;
+    padding: 50px 3%;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+nav a:hover { color: #111827; }
+.separator { color: #d1d5db; font-size: 0.8rem; }
+
+
+/* --- LA GRILLE BENTO --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 250px 250px;
+    gap: 16px;
+}
+
+.card {
+    position: relative;
+    background-color: #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.card-tall { grid-column: span 2; grid-row: span 2; }
+.card-wide { grid-column: span 2; grid-row: span 1; }
+.card-small { grid-column: span 1; grid-row: span 1; }
+
+.card-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.3s ease, object-position 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Style spécifique logos */
+.img-logo {
+    object-fit: contain !important;
+    background-color: white;
+    padding: 20px;
+}
+
+/* --- CADRAGES ET ZOOMS AVANCÉS POUR LE MENU --- */
+/* Zooms réduits pour préserver la netteté des images */
+.img-competences {
+    object-fit: cover !important;
+    transform: scale(1.05);
+    object-position: center 35%;
+}
+.card:hover .img-competences {
+    transform: scale(1.1);
+}
+
+.img-association {
+    object-fit: cover !important;
+    transform: scale(1.15);
+    object-position: center 40%;
+}
+.card:hover .img-association {
+    transform: scale(1.2);
+}
+
+.img-tgbt {
+    object-fit: cover !important;
+    transform: scale(1.05);
+    object-position: center 45%;
+}
+.card:hover .img-tgbt {
+    transform: scale(1.1);
+}
+
+.card:hover .card-bg:not(.img-competences):not(.img-association):not(.img-tgbt) {
+    transform: scale(1.03);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.85) 100%);
+    z-index: 2;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 20px; left: 20px; right: 20px;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+    z-index: 3;
+    line-height: 1.3;
+}
+
+.card-small .card-title { font-size: 1rem; }
+
+
+/* --- LES POPUPS (MODALES) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.close {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 24px;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close:hover { color: #111827; }
+
+/* Contenu Modale Contact */
+.contact-info { margin: 15px 0; color: #4b5563; font-size: 1rem; }
+.contact-info a { color: #111827; text-decoration: none; font-weight: 500; }
+
+/* Contenu Modale À propos / Objectif */
+.about-modal {
+    max-width: 600px;
+    text-align: left;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.about-modal .profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.about-modal h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #111827;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.about-text p {
+    margin-bottom: 16px;
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* --- CONTENU DE LA MODALE CENTRES D'INTÉRÊT --- */
+.interests-modal {
+    max-width: 780px;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 45px;
+}
+
+.title-interests {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.interests-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.interest-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.interest-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover !important;
+    border-radius: 10px;
+    flex-shrink: 0;
+    box-shadow: none !important;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.interest-text h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.interest-text p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.interest-text p:last-child {
+    margin-bottom: 0;
+}
+
+.interest-sport-text p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    padding-top: 8px;
+}
+
+/* --- CONTENU DE LA MODALE PROJETS SCOLAIRES --- */
+.projects-modal {
+    max-width: 780px;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 45px;
+}
+
+.title-projects {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.project-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Images nettes : taille d'affichage raisonnable par rapport aux fichiers sources
+   (haute résolution), sans zoom / crop excessif qui dégraderait le rendu */
+.project-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.project-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.project-meta h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.project-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background-color: #eef2ff;
+    color: #4338ca;
+    padding: 3px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.project-text p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+/* Bouton de téléchargement bien identifiable, pas juste un titre */
+.project-download {
+    display: inline-flex;
+    align-items: center;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 9px 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.project-download:hover {
+    background-color: #1d4ed8;
+}
+
+/* --- CONTENU DE LA MODALE PROJETS ENTREPRISES --- */
+.entreprise-modal {
+    max-width: 820px;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 45px;
+}
+
+.title-entreprise {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.entreprise-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.entreprise-project {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.entreprise-project:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.entreprise-project-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.entreprise-subsection {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.entreprise-subsection h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.entreprise-subsection:not(.with-image) {
+    flex-direction: column;
+}
+
+.entreprise-subsection p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.entreprise-subsection p:last-child {
+    margin-bottom: 0;
+}
+
+.entreprise-subsection-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.entreprise-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+    image-rendering: -webkit-optimize-contrast;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.img-relamping {
+    object-position: center 90%;
+}
+
+/* --- CONTENU DE LA MODALE ALTERNANCE ET SCOLARITÉ --- */
+.alternance-modal {
+    max-width: 820px;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 40px 45px;
+}
+
+.title-alternance {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #111827;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 15px;
+}
+
+.alternance-container {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.alternance-item {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.alternance-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.alternance-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+    image-rendering: -webkit-optimize-contrast;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Cadrages spécifiques pour que le sujet important reste bien visible */
+.img-sti2d {
+    object-position: center 55%;
+}
+
+.img-iut {
+    object-position: center 40%;
+}
+
+.img-euro-pool {
+    object-position: center 65%;
+}
+
+.alternance-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.alternance-text h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+.alternance-text p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+
+.alternance-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- CONTENU DE LA MODALE COMPÉTENCES (carte mentale) --- */
+.competences-modal {
+    max-width: 1080px;
+    text-align: left;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px 45px;
+}
+
+.title-competences {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+    text-align: center;
+}
+
+/* Carte mentale SVG (desktop / tablette) */
+.mindmap-wrapper {
+    width: 100%;
+}
+
+.mindmap-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.mindmap-arrow {
+    stroke: #b0b7c3;
+    stroke-width: 1.5;
+}
+
+/* Boîtes de compétences (utilisées en SVG via foreignObject ET en version mobile) */
+.mindmap-box {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 14px;
+    padding: 18px 22px;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.mindmap-box h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.mindmap-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mindmap-box li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #374151;
+    padding-left: 14px;
+    position: relative;
+}
+
+.mindmap-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+}
+
+/* Palette de couleurs, en cohérence avec les accents déjà utilisés sur le site */
+.mindmap-orange { background-color: #FDE8D7; }
+.mindmap-orange h3, .mindmap-orange li::before { color: #B15A22; }
+
+.mindmap-blue { background-color: #DCEEFB; }
+.mindmap-blue h3, .mindmap-blue li::before { color: #1D6FA5; }
+
+.mindmap-yellow { background-color: #FCF0C7; }
+.mindmap-yellow h3, .mindmap-yellow li::before { color: #A6820A; }
+
+.mindmap-violet { background-color: #E6E1FA; }
+.mindmap-violet h3, .mindmap-violet li::before { color: #4338ca; }
+
+.mindmap-pink { background-color: #FBE1E7; }
+.mindmap-pink h3, .mindmap-pink li::before { color: #C2426B; }
+
+.mindmap-green { background-color: #DBF5E8; }
+.mindmap-green h3, .mindmap-green li::before { color: #1F8A5F; }
+
+/* Version empilée (mobile), masquée par défaut */
+.mindmap-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .bento-grid { grid-template-columns: repeat(4, 1fr); }
+    .card-small { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .bento-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    .card-tall, .card-wide, .card-small { grid-column: span 1; grid-row: span 1; }
+    .card-tall { grid-row: span 2; }
+
+    .interest-item, .project-item, .alternance-item { flex-direction: column; gap: 16px; }
+    .entreprise-subsection.with-image { flex-direction: column; gap: 14px; }
+    .entreprise-img { width: 100%; height: 200px; }
+    .interest-img, .project-img { width: 100%; height: 200px; }
+    .alternance-img { width: 100%; height: 200px; }
+
+    .competences-modal { padding: 28px 20px; }
+    .mindmap-wrapper { display: none; }
+    .mindmap-mobile { display: flex; }
+}

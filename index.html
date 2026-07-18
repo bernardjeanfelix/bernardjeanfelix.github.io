@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Bernard Jean Félix</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header>
+            <div class="header-left">
+                <h1>Bernard Jean Félix</h1>
+                <p class="subtitle">Étudiant BUT3 Génie Électrique et Informatique Industrielle</p>
+            </div>
+            <nav>
+                <a href="javascript:void(0)" onclick="toggleContact()">Contact</a>
+                <span class="separator">|</span>
+                <a href="Cv_JEANFELIX_ChargeAffaires_.pdf" download="Cv_Bernard_Jean_Felix">CV</a>
+                <span class="separator">|</span>
+                <a href="https://drive.google.com/file/d/1OEM4ze_vpYBQO0kErm4EshOijt2KZ2Xc/view?usp=sharing" target="_blank" rel="noopener">CV Vidéo</a>
+                <span class="separator">|</span>
+                <a href="https://www.linkedin.com/in/bernard-jean-félix-717204319" target="_blank">LinkedIn</a>
+            </nav>
+        </header>
+
+        <main class="bento-grid">
+
+            <div class="card card-tall" onclick="toggleAbout()">
+                <img src="Photo pro bernard.jpeg" alt="Bernard Jean Félix" class="card-bg">
+                <div class="card-overlay"></div>
+                <h2 class="card-title">À propos de moi</h2>
+            </div>
+
+            <div class="card card-wide" onclick="toggleSchoolProjects()">
+                <img src="logo iut evry.jpg" alt="Projets scolaires" class="card-bg img-logo">
+                <div class="card-overlay"></div>
+                <div class="card-title">Projets scolaires</div>
+            </div>
+
+            <div class="card card-wide" onclick="toggleEntreprise()">
+                <img src="logo europool.png" alt="Projets en entreprise" class="card-bg img-logo">
+                <div class="card-overlay"></div>
+                <div class="card-title">Projets en entreprise</div>
+            </div>
+
+            <div class="card card-small" onclick="toggleAlternance()">
+                <img src="iut.jpg" alt="Alternance et Scolarité" class="card-bg">
+                <div class="card-overlay"></div>
+                <h2 class="card-title">Alternance et<br>Scolarité</h2>
+            </div>
+
+            <div class="card card-small" onclick="toggleCompetences()">
+                <img src="competences.jpeg" alt="Compétences" class="card-bg img-competences">
+                <div class="card-overlay"></div>
+                <h2 class="card-title">Compétences</h2>
+            </div>
+
+            <div class="card card-small" onclick="toggleInterests()">
+                <img src="Association 1.png" alt="Centres d'intérêt" class="card-bg img-association">
+                <div class="card-overlay"></div>
+                <h2 class="card-title">Centres d'intérêt</h2>
+            </div>
+
+            <div class="card card-small" onclick="toggleObjective()">
+                <img src="tgbt.jpeg" alt="Objectif" class="card-bg img-tgbt">
+                <div class="card-overlay"></div>
+                <h2 class="card-title">Objectif</h2>
+            </div>
+
+        </main>
+    </div>
+
+    <div id="contactPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleContact()">&times;</span>
+            <h2>Me contacter</h2>
+            <p class="contact-info"><strong>Mail :</strong> <a href="mailto:bernardjeanfelix18@gmail.com">bernardjeanfelix18@gmail.com</a></p>
+            <p class="contact-info"><strong>Tel :</strong> <a href="tel:+33768170343">07 68 17 03 43</a></p>
+        </div>
+    </div>
+
+    <div id="aboutPopup" class="modal">
+        <div class="modal-content about-modal">
+            <span class="close" onclick="toggleAbout()">&times;</span>
+
+            <img src="Photo pro bernard.jpeg" alt="Bernard Jean Félix" class="profile-pic-large">
+            <h2 class="title-about">Un parcours qui m'a révélé ma passion</h2>
+
+            <div class="about-text">
+                <p>Mon BUT Génie Électrique et Informatique Industrielle à l'IUT d'Évry m'a d'abord formé à un large spectre de compétences : électricité, électronique de puissance, programmation et automatisme.</p>
+                <p>C'est au fil de mes expériences que ma voie s'est dessinée vers les <strong>courants forts</strong> et la <strong>transition énergétique</strong>.</p>
+                <p><strong>Ce qui me motive :</strong> Gérer des projets électriques d'envergure, allier la technique au relationnel, coordonner des équipes et piloter des projets concrets de A à Z.</p>
+                <p><strong>Mon objectif :</strong> Poursuivre en formation ingénieur ou Master Énergie dès septembre 2026 pour devenir chargé d'affaires énergie/électricité et piloter des projets à fort impact.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="schoolProjectsPopup" class="modal">
+        <div class="modal-content projects-modal">
+            <span class="close" onclick="toggleSchoolProjects()">&times;</span>
+            <h2 class="title-projects">Projets scolaires</h2>
+
+            <div class="projects-container">
+
+                <div class="project-item">
+                    <img src="dimensionnement solaire.jpg" alt="Dimensionnement solaire" class="project-img">
+                    <div class="project-text">
+                        <div class="project-meta">
+                            <h3>Dimensionnement d'une installation solaire</h3>
+                            <span class="project-badge">Projet individuel</span>
+                        </div>
+                        <p>
+                            Étude de faisabilité technique et financière d'une installation solaire :
+                            chiffrage, sélection des fournisseurs et dimensionnement des équipements
+                            en fonction des besoins énergétiques du site.
+                        </p>
+                        <a href="Dimensionnement Solaire 1.pdf" download class="project-download">
+                            Télécharger le projet complet
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <img src="regulation.jpeg" alt="Régulation thermoplongeur" class="project-img">
+                    <div class="project-text">
+                        <div class="project-meta">
+                            <h3>Régulation thermoplongeur</h3>
+                            <span class="project-badge">Projet de groupe</span>
+                        </div>
+                        <p>
+                            Conception et mise en service d'une régulation de température pour un
+                            thermoplongeur : réalisation du schéma électrique, programmation de
+                            l'automate et tests de fonctionnement.
+                        </p>
+                        <a href="SAE Régulatation 1.pdf" download class="project-download">
+                            Télécharger le projet complet
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <img src="Pompage.png" alt="Station de pompage" class="project-img">
+                    <div class="project-text">
+                        <div class="project-meta">
+                            <h3>Station de pompage</h3>
+                            <span class="project-badge">Projet de groupe</span>
+                        </div>
+                        <p>
+                            Étude et réalisation d'une station de pompage automatisée, de la
+                            conception du système à sa mise en service.
+                        </p>
+                        <a href="Projet Pompage 1.pdf" download class="project-download">
+                            Télécharger le projet complet
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="entreprisePopup" class="modal">
+        <div class="modal-content entreprise-modal">
+            <span class="close" onclick="toggleEntreprise()">&times;</span>
+            <h2 class="title-entreprise">Projets entreprises</h2>
+
+            <div class="entreprise-container">
+
+                <!-- Projet 1 : Relamping -->
+                <div class="entreprise-project">
+                    <h3 class="entreprise-project-title">Projet : Relamping et optimisation du réfectoire</h3>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="relampage.JPG" alt="Relamping du réfectoire" class="entreprise-img img-relamping">
+                        <div class="entreprise-subsection-text">
+                            <h4>Problème constaté :</h4>
+                            <p>Dans le réfectoire de l'entreprise, j'ai remarqué que l'éclairage était complètement obsolète, sombre et très énergivore. Il y avait 25 spots halogènes de 50 W installés dans le faux-plafond. Malgré cette consommation élevée, on mesurait seulement 120 lux sur les tables. C'était inconfortable pour les équipes, l'ambiance était très terne et il fallait souvent remplacer les ampoules qui grillaient les unes après les autres. De plus la lumière restait allumée toute la journée.</p>
+                        </div>
+                    </div>
+
+                    <div class="entreprise-subsection">
+                        <h4>But :</h4>
+                        <p>Mon objectif était de moderniser entièrement cette zone. Je voulais diviser drastiquement la consommation électrique tout en améliorant le confort des salariés. Je devais également respecter la norme réglementaire NF EN 12464-1 qui impose un minimum de 200 lux pour les zones de restauration et 300 lux pour le buffet/zone de préparation. En modélisant sur Dialux, j'ai donc choisi 300 lux au niveau des tables pour améliorer l'ambiance et le bien-être des salariés.</p>
+                    </div>
+
+                    <div class="entreprise-subsection">
+                        <h4>Exécution :</h4>
+                        <p>J'ai d'abord calculé la puissance totale de l'ancienne installation, qui s'élevait à 1250 W (50 W × 25). Pour concevoir la nouvelle implantation, j'ai modélisé le réfectoire en 3D sur le logiciel Dialux. En intégrant les dimensions de la pièce et les caractéristiques des différents spots LED, la simulation m'a permis de prouver qu'on pouvait passer de 25 à seulement 12 spots LED de 25 W car les LED ont une efficacité lumineuse environ 5 à 10 fois supérieure à celle des halogènes.</p>
+                        <p>Pour le câblage, j'ai choisi de raccorder l'ensemble en parallèle pour que si un composant ou un spot tombe en panne, le courant continue de circuler et les 11 autres spots restent allumés. Ensuite, j'ai installé un détecteur de présence pour que la lumière se coupe automatiquement quand la pièce est vide.</p>
+                        <p>Au final, on est passé de 1250 W à 300 W de puissance installée (soit 76 % d'économie d'énergie) tout en doublant l'éclairement de la pièce, qui est maintenant parfaitement conforme et agréable.</p>
+                    </div>
+                </div>
+
+                <!-- Projet 2 : Chargeur chariot élévateur -->
+                <div class="entreprise-project">
+                    <h3 class="entreprise-project-title">Projet : Installation chargeur pour chariot élévateur</h3>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="chariot.jpeg" alt="Chariot élévateur Toyota" class="entreprise-img">
+                        <div class="entreprise-subsection-text">
+                            <h4>Problème constaté :</h4>
+                            <p>Nous avons reçu de nouveaux chariots élévateurs électriques Toyota ainsi que leurs chargeurs de batterie Micropower. Le souci était que ces équipements n'étaient livrés avec aucune protection électrique. Il fallait donc concevoir une installation sécurisée pour les raccorder au réseau de l'atelier tout en respectant les normes électriques. De plus l'installation était protégée par un disjoncteur moteur, ce qui est inadapté pour la protection du chargeur.</p>
+                        </div>
+                    </div>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="protection.jpeg" alt="Ancienne protection disjoncteur moteur" class="entreprise-img">
+                        <div class="entreprise-subsection-text">
+                            <h4>But :</h4>
+                            <p>Mon objectif était de déterminer le calibre exact des disjoncteurs et le mode de raccordement pour ces chargeurs. Je devais trancher entre une protection basée sur la consommation courante des chariots et une protection basée sur la capacité maximale des chargeurs, afin de garantir un fonctionnement fiable sans coupures récurrentes, tout en assurant la sécurité des câbles et du matériel.</p>
+                        </div>
+                    </div>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="batterie.jpeg" alt="Plaque signalétique batterie" class="entreprise-img">
+                        <div class="entreprise-subsection-text">
+                            <h4>Exécution :</h4>
+                            <p>Au départ, j'ai commis l'erreur classique de vouloir dimensionner la protection en calculant l'intensité uniquement à partir de la puissance nominale du chargeur, ce qui me donnait une valeur tournant autour de 50 ampères. En y réfléchissant un peu plus et en lisant attentivement la plaque signalétique, j'ai réalisé que c'était risqué : le chargeur peut monter jusqu'à 63 ampères en intensité maximale. Si j'étais resté sur mon calcul initial, le disjoncteur aurait fini par sauter dès que le chargeur aurait tiré toute sa puissance.</p>
+                            <p>J'ai donc rectifié mon raisonnement en choisissant des disjoncteurs tétrapolaires Schneider standard, calibrés à 63 ampères. J'ai opté pour le tétrapolaire car mon installation Canalis inclut un neutre (3L+N+PE), et il est donc indispensable de couper les trois phases ainsi que le neutre pour garantir une sécurité totale. J'ai également abandonné l'utilisation des disjoncteurs moteurs (type Siemens Sirius), car leur courbe de déclenchement est conçue pour les pics de démarrage des moteurs et non pour protéger des chargeurs électroniques, ce qui rendait l'ancienne installation inefficace.</p>
+                        </div>
+                    </div>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="chargeur.jpeg" alt="Chargeur Toyota installé" class="entreprise-img">
+                        <div class="entreprise-subsection-text">
+                            <h4>Final :</h4>
+                            <p>Grâce à cette réflexion, nous avons une installation électrique fiable et sécurisée. Les chargeurs sont correctement protégés et dimensionnés pour fonctionner sans risque de surchauffe ou de coupure intempestive. Le système est maintenant parfaitement opérationnel pour recharger les batteries des chariots dans de bonnes conditions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 : Analyse Pareto -->
+                <div class="entreprise-project">
+                    <h3 class="entreprise-project-title">Projet : Amélioration de la disponibilité des machines par analyse Pareto</h3>
+
+                    <div class="entreprise-subsection with-image">
+                        <img src="séparateur.png" alt="Analyse Pareto des arrêts machine" class="entreprise-img">
+                        <div class="entreprise-subsection-text">
+                            <h4>Problème constaté :</h4>
+                            <p>En début d'année, j'ai remarqué que certaines machines de la ligne de production concentraient la majorité des arrêts. Ces pannes récurrentes ralentissaient la cadence de l'usine et les interventions se faisaient systématiquement en urgence, sans connaître les causes réelles.</p>
+                        </div>
+                    </div>
+
+                    <div class="entreprise-subsection">
+                        <h4>But :</h4>
+                        <p>Réaliser une analyse Pareto à partir des données du logiciel de supervision Tanzer afin d'identifier les 20 % de défauts responsables de 80 % des arrêts, et proposer des actions correctives ciblées pour améliorer la disponibilité globale de la ligne.</p>
+                    </div>
+
+                    <div class="entreprise-subsection">
+                        <h4>Exécution :</h4>
+                        <p>En cours.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="alternancePopup" class="modal">
+        <div class="modal-content alternance-modal">
+            <span class="close" onclick="toggleAlternance()">&times;</span>
+            <h2 class="title-alternance">Alternance et scolarité</h2>
+
+            <div class="alternance-container">
+
+                <div class="alternance-item">
+                    <img src="STI2D.jpg" alt="Baccalauréat STI2D" class="alternance-img img-sti2d">
+                    <div class="alternance-text">
+                        <h3>2020 – 2023 : Baccalauréat STI2D (Sciences et Technologies de l'Industrie et du Développement Durable) – Mention Bien</h3>
+                        <p>Après ma classe de seconde, j'ai ressenti le besoin de quitter le cadre purement théorique pour une approche plus concrète tournée vers le secteur industriel. C'est ce qui m'a conduit vers le bac STI2D, avec une spécialité en ITECH (Innovation Technologique et Éco-Conception).</p>
+                        <p>Ce choix a été déterminant, il m'a permis d'allier mon attirance pour l'innovation technologique et la conscience des enjeux environnementaux, en apprenant à intégrer le cycle de vie complet d'un produit (de la conception jusqu'au recyclage).</p>
+                        <p>Durant ces trois années, j'ai acquis les fondamentaux de la modélisation, de la conception industrielle et de la mécanique (liaisons de systèmes). Cette formation, validée avec une mention Bien, a constitué le premier socle solide sur lequel j'ai construit mon expertise technique actuelle.</p>
+                    </div>
+                </div>
+
+                <div class="alternance-item">
+                    <img src="iut.jpg" alt="BUT Génie Électrique et Informatique Industrielle" class="alternance-img img-iut">
+                    <div class="alternance-text">
+                        <h3>2023 – 2026 : BUT Génie Électrique et Informatique Industrielle (GEII) – IUT d'Évry-Courcouronnes</h3>
+                        <p>Mon orientation vers le BUT GEII est due à une passion grandissante pour l'électricité. Au lycée, c'est lors des travaux pratiques en physique : sur les piles à combustible ou l'étude des ions que j'ai remarqué que ce domaine me plaisait réellement.</p>
+                        <p>Un stage de découverte en 3ème, en tant que vendeur-préparateur dans le secteur du matériel électrique pour le tertiaire a également appuyé cette envie. Si la conception mécanique m'intéressait, c'est dans l'électricité que je voulais faire ma carrière.</p>
+                        <p>J'ai donc délibérément choisi le BUT GEII plutôt que le BUT GMP (Génie Mécanique et Productique) qui est pourtant la suite logique de mon bac, pour me concentrer sur le domaine électrique.</p>
+                        <p>La première année a été exigeante, avec une forte phase d'adaptation nécessaire pour assimiler la densité du programme. J'y ai acquis un bloc technique solide, allant de l'automatisme aux systèmes embarqués, en passant par la manipulation d'Arduino et des microprocesseurs. Ce fut également l'année des fondamentaux électriques (loi d'Ohm, loi de Thévenin, lois de Kirchhoff, pont diviseur) et de la logique combinatoire (tableaux de Karnaugh).</p>
+                        <p>En deuxième année, j'ai choisi de m'orienter vers la spécialité EME (Électricité et Maîtrise de l'Énergie) en alternance. Les enseignements, très orientés courant fort, GTB (Gestion Technique du Bâtiment) et dimensionnement d'installations, m'ont encore plus donné envie de travailler dans ce domaine. Cette spécialisation a confirmé mon projet professionnel et m'a préparé à devenir la personne que je suis aujourd'hui.</p>
+                    </div>
+                </div>
+
+                <div class="alternance-item">
+                    <img src="batiment euro pool.png" alt="Bâtiment Euro Pool System" class="alternance-img img-euro-pool">
+                    <div class="alternance-text">
+                        <h3>2024 – 2026 : Alternance – Technicien de maintenance industrielle chez Euro Pool System</h3>
+                        <p>Mon cursus théorique en IUT m'a permis de me préparer techniquement et moralement pour rejoindre l'entreprise Euro Pool System.</p>
+                        <p>Euro Pool System est un dépôt logistique industriel situé à Bondoufle (91). Il est spécialisé dans la gestion, le nettoyage automatisé et la distribution de bacs plastiques réutilisables pour la chaîne d'approvisionnement agroalimentaire. Il y a deux lignes de production automatisées et des systèmes de convoyage complexes. C'est un environnement industriel exigeant où la continuité de service est une priorité absolue, ce qui en fait un cadre d'apprentissage idéal pour intervenir sur des armoires électriques, des automates et des installations de courants forts.</p>
+                        <p>Intégré en tant qu'alternant, j'ai rapidement mis en pratique les compétences acquises en cours pour répondre aux enjeux réels d'un site industriel.</p>
+                        <p>Mon rôle en première année était d'assurer la disponibilité des équipements en faisant des maintenances prédictives et correctives et de participer au diagnostic et à l'optimisation des machines industrielles.</p>
+                        <p>Puis en deuxième année j'ai géré des projets : relamping, installation de chargeur pour transpalette ou analyse de Pareto.</p>
+                        <p>Cette alternance m'a permis de gagner en autonomie et en maturité professionnelle. Grâce à mes interventions régulières sur le terrain, j'ai développé une solide polyvalence technique, apprenant à diagnostiquer et à résoudre des pannes complexes qui sollicitent autant mes compétences en électricité qu'en mécanique industrielle.</p>
+                        <p>J'ai également appris à gérer le stress inhérent aux environnements de production à haute cadence, tout en restant réactif pour limiter les temps d'arrêt.</p>
+                        <p>Enfin, l'obtention de mes habilitations électriques (B2V/BR/BC/H0V) a structuré ma rigueur, me permettant d'intervenir sur des armoires et des installations courants forts en toute sécurité.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="competencesPopup" class="modal">
+        <div class="modal-content competences-modal">
+            <span class="close" onclick="toggleCompetences()">&times;</span>
+            <h2 class="title-competences">Compétences</h2>
+
+            <!-- Version carte mentale (desktop / tablette) -->
+            <div class="mindmap-wrapper">
+                <svg viewBox="0 0 1040 980" xmlns="http://www.w3.org/2000/svg" class="mindmap-svg">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <path d="M0,0 L8,4 L0,8 Z" fill="#9ca3af"></path>
+                        </marker>
+                    </defs>
+
+                    <!-- Flèches -->
+                    <line x1="520" y1="465" x2="460" y2="300" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+                    <line x1="520" y1="465" x2="460" y2="465" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+                    <line x1="520" y1="465" x2="460" y2="630" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+                    <line x1="520" y1="465" x2="580" y2="300" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+                    <line x1="520" y1="465" x2="580" y2="465" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+                    <line x1="520" y1="465" x2="580" y2="630" class="mindmap-arrow" marker-end="url(#arrowhead)"></line>
+
+                    <!-- Bloc 1 : Électricité - Courant fort -->
+                    <foreignObject x="20" y="20" width="440" height="280">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-orange">
+                            <h3>Électricité - Courant fort</h3>
+                            <ul>
+                                <li>Monophasé / Triphasé</li>
+                                <li>Dimensionnement d'installation électrique</li>
+                                <li>Schéma électrique</li>
+                                <li>Norme NFC 15-100</li>
+                                <li>Habilitations B2V, BR, BC, H0V</li>
+                                <li>Câblage + recherche de pannes</li>
+                                <li>Changement de composants électriques (moteur, capteur, luminaire)</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+
+                    <!-- Bloc 2 : Gestion de projet -->
+                    <foreignObject x="580" y="20" width="440" height="280">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-blue">
+                            <h3>Gestion de projet</h3>
+                            <ul>
+                                <li>Chiffrage et étude de faisabilité</li>
+                                <li>Coordination d'équipes et de plannings</li>
+                                <li>Contact fournisseurs et rédaction de devis</li>
+                                <li>Reporting</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+
+                    <!-- Bloc 3 : Électricité - Courant faible -->
+                    <foreignObject x="20" y="330" width="440" height="270">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-yellow">
+                            <h3>Électricité - Courant faible</h3>
+                            <ul>
+                                <li>Automatisme</li>
+                                <li>Grafcet / Ladder</li>
+                                <li>KNX</li>
+                                <li>GTB / GTC</li>
+                                <li>Câblage entrées / sorties</li>
+                                <li>Schéma électrique</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+
+                    <!-- Bloc 4 : Relationnel -->
+                    <foreignObject x="580" y="330" width="440" height="270">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-violet">
+                            <h3>Relationnel</h3>
+                            <ul>
+                                <li>Gestion du stress et travail sous pression (expérience McDonald's)</li>
+                                <li>Aisance dans les échanges avec fournisseurs et interlocuteurs techniques</li>
+                                <li>Compréhension des besoins</li>
+                                <li>Assistance à la personne (expérience McDonald's et association)</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+
+                    <!-- Bloc 5 : Mécanique industrielle -->
+                    <foreignObject x="20" y="630" width="440" height="330">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-pink">
+                            <h3>Mécanique industrielle</h3>
+                            <ul>
+                                <li>Maintenance préventive et curative</li>
+                                <li>GMAO</li>
+                                <li>Analyse de Pareto</li>
+                                <li>Recherche de pannes complexes</li>
+                                <li>Analyse vibratoire et thermique</li>
+                                <li>Pneumatique : distribution d'air, compresseur</li>
+                                <li>Hydraulique : pompe, vanne, chaîne, vérin</li>
+                                <li>Transmission mécanique : courroie, poulie, engrenages, pignons, roulements, rouleaux</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+
+                    <!-- Bloc 6 : Logiciels -->
+                    <foreignObject x="580" y="630" width="440" height="330">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="mindmap-box mindmap-green">
+                            <h3>Logiciels</h3>
+                            <ul>
+                                <li>QElectroTech</li>
+                                <li>PSIM</li>
+                                <li>AutoCAD Electrical</li>
+                                <li>GMAO</li>
+                                <li>Pack Office</li>
+                            </ul>
+                        </div>
+                    </foreignObject>
+                </svg>
+            </div>
+
+            <!-- Version empilée (mobile) -->
+            <div class="mindmap-mobile">
+                <div class="mindmap-box mindmap-orange">
+                    <h3>Électricité - Courant fort</h3>
+                    <ul>
+                        <li>Monophasé / Triphasé</li>
+                        <li>Dimensionnement d'installation électrique</li>
+                        <li>Schéma électrique</li>
+                        <li>Norme NFC 15-100</li>
+                        <li>Habilitations B2V, BR, BC, H0V</li>
+                        <li>Câblage + recherche de pannes</li>
+                        <li>Changement de composants électriques (moteur, capteur, luminaire)</li>
+                    </ul>
+                </div>
+                <div class="mindmap-box mindmap-yellow">
+                    <h3>Électricité - Courant faible</h3>
+                    <ul>
+                        <li>Automatisme</li>
+                        <li>Grafcet / Ladder</li>
+                        <li>KNX</li>
+                        <li>GTB / GTC</li>
+                        <li>Câblage entrées / sorties</li>
+                        <li>Schéma électrique</li>
+                    </ul>
+                </div>
+                <div class="mindmap-box mindmap-blue">
+                    <h3>Gestion de projet</h3>
+                    <ul>
+                        <li>Chiffrage et étude de faisabilité</li>
+                        <li>Coordination d'équipes et de plannings</li>
+                        <li>Contact fournisseurs et rédaction de devis</li>
+                        <li>Reporting</li>
+                    </ul>
+                </div>
+                <div class="mindmap-box mindmap-violet">
+                    <h3>Relationnel</h3>
+                    <ul>
+                        <li>Gestion du stress et travail sous pression (expérience McDonald's)</li>
+                        <li>Aisance dans les échanges avec fournisseurs et interlocuteurs techniques</li>
+                        <li>Compréhension des besoins</li>
+                        <li>Assistance à la personne (expérience McDonald's et association)</li>
+                    </ul>
+                </div>
+                <div class="mindmap-box mindmap-pink">
+                    <h3>Mécanique industrielle</h3>
+                    <ul>
+                        <li>Maintenance préventive et curative</li>
+                        <li>GMAO</li>
+                        <li>Analyse de Pareto</li>
+                        <li>Recherche de pannes complexes</li>
+                        <li>Analyse vibratoire et thermique</li>
+                        <li>Pneumatique : distribution d'air, compresseur</li>
+                        <li>Hydraulique : pompe, vanne, chaîne, vérin</li>
+                        <li>Transmission mécanique : courroie, poulie, engrenages, pignons, roulements, rouleaux</li>
+                    </ul>
+                </div>
+                <div class="mindmap-box mindmap-green">
+                    <h3>Logiciels</h3>
+                    <ul>
+                        <li>QElectroTech</li>
+                        <li>PSIM</li>
+                        <li>AutoCAD Electrical</li>
+                        <li>GMAO</li>
+                        <li>Pack Office</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="interestsPopup" class="modal">
+        <div class="modal-content interests-modal">
+            <span class="close" onclick="toggleInterests()">&times;</span>
+            <h2 class="title-interests">Centres d'intérêts</h2>
+
+            <div class="interests-container">
+                <div class="interest-item">
+                    <img src="Association 1.png" alt="" class="interest-img">
+                    <div class="interest-text">
+                        <h3>Le sens du partage</h3>
+                        <p>Aider les autres est quelque chose qui compte vraiment pour moi. C'est dans cet esprit que j'ai été bénévole pendant 6 mois, d'août 2021 à janvier 2022, au sein d'une épicerie sociale, La Clairière, à Saint-Michel-sur-Orge.</p>
+                        <p>Sur place, j'organisais les collectes alimentaires et la gestion des stocks, de la réception à la mise en rayon. Mais surtout, j'étais présent pour accueillir les familles au quotidien, tenir des stands d'information et les accompagner dans leurs démarches. Au-delà des tâches concrètes, ce qui m'a le plus marqué, c'est de contribuer, à mon échelle, à faciliter l'accès à l'alimentation pour ceux qui en avaient besoin.</p>
+                    </div>
+                </div>
+
+                <div class="interest-item">
+                    <img src="voiture.jpeg" alt="" class="interest-img">
+                    <div class="interest-text">
+                        <h3>Monde automobile</h3>
+                        <p>Depuis tout petit, j'aime le design intérieur et extérieur des voitures, le bruit des moteurs et soutenir mes constructeurs favoris. J'apprécie énormément les modifications esthétiques ; certains modèles stimulent ma créativité pour apporter des améliorations légales à mes véhicules, ce qui me donne constamment l'envie de me dépasser.</p>
+                    </div>
+                </div>
+
+                <div class="interest-item">
+                    <img src="mecanique.jpeg" alt="" class="interest-img">
+                    <div class="interest-text">
+                        <h3>Mécanique auto</h3>
+                        <p>J'aime également faire la mécanique de base de ma voiture ou aider à faire les réparations de mes amis.</p>
+                    </div>
+                </div>
+
+                <div class="interest-sport-text">
+                    <p>J'aime également le sport en allant régulièrement à la salle de sport et en jouant au basket, au foot et au badminton</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="objectivePopup" class="modal">
+        <div class="modal-content about-modal">
+            <span class="close" onclick="toggleObjective()">&times;</span>
+
+            <img src="tgbt.jpeg" alt="Objectif" class="profile-pic-large">
+            <h2 class="title-about" style="text-align: center; margin-bottom: 25px;">Objectif</h2>
+
+            <div class="about-text">
+                <p>Je poursuis mon parcours en formation ingénieur ou Master Énergie à partir de septembre 2026, dans le cadre d'une alternance de 2 à 3 ans, avec une fréquence d'une semaine en école pour trois semaines en entreprise. Je suis actuellement à la recherche de cette alternance en tant que chargé d'affaires énergie/électricité.</p>
+                <p>Alternant en génie électrique, je souhaite à terme devenir chargé d'affaires énergie/électricité pour piloter de gros projets industriels ou tertiaires au sein d'une entreprise. Mon objectif est d'allier la technique acquise en classe et en alternance, mes habilitations électriques et mes compétences en gestion de projet, pour suivre des projets de A à Z.</p>
+                <p>Je me projette pleinement épanoui dans ce métier, avec un portefeuille client à gérer :</p>
+                <ul style="margin-left: 20px; color: #4b5563; line-height: 1.6; font-size: 0.95rem; margin-bottom: 16px;">
+                    <li style="margin-bottom: 8px;">d'un côté la négociation et le chiffrage des affaires</li>
+                    <li>de l'autre le suivi de projet, en y apportant toujours ma sensibilité technique</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContact() {
+            var p = document.getElementById("contactPopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleAbout() {
+            var p = document.getElementById("aboutPopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleSchoolProjects() {
+            var p = document.getElementById("schoolProjectsPopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleEntreprise() {
+            var p = document.getElementById("entreprisePopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleAlternance() {
+            var p = document.getElementById("alternancePopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleCompetences() {
+            var p = document.getElementById("competencesPopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleInterests() {
+            var p = document.getElementById("interestsPopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+        function toggleObjective() {
+            var p = document.getElementById("objectivePopup");
+            p.style.display = (p.style.display === "flex") ? "none" : "flex";
+        }
+
+        window.onclick = function(event) {
+            var contact = document.getElementById("contactPopup");
+            var about = document.getElementById("aboutPopup");
+            var schoolProjects = document.getElementById("schoolProjectsPopup");
+            var alternance = document.getElementById("alternancePopup");
+            var entreprise = document.getElementById("entreprisePopup");
+            var competences = document.getElementById("competencesPopup");
+            var interests = document.getElementById("interestsPopup");
+            var objective = document.getElementById("objectivePopup");
+            if (event.target == contact) contact.style.display = "none";
+            if (event.target == about) about.style.display = "none";
+            if (event.target == schoolProjects) schoolProjects.style.display = "none";
+            if (event.target == alternance) alternance.style.display = "none";
+            if (event.target == entreprise) entreprise.style.display = "none";
+            if (event.target == competences) competences.style.display = "none";
+            if (event.target == interests) interests.style.display = "none";
+            if (event.target == objective) objective.style.display = "none";
+        }
+    </script>
+</body>
+</html>
